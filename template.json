@@ -1,0 +1,149 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "workflows_FRT_name": {
+            "defaultValue": "FRT",
+            "type": "String"
+        },
+        "connections_cognitiveservicestextanalytics_2_externalid": {
+            "defaultValue": "/subscriptions/7c8baa85-fddd-4492-a618-a116511fbcda/resourceGroups/FRT/providers/Microsoft.Web/connections/cognitiveservicestextanalytics-2",
+            "type": "String"
+        },
+        "connections_googlesheet_2_externalid": {
+            "defaultValue": "/subscriptions/7c8baa85-fddd-4492-a618-a116511fbcda/resourceGroups/FRT/providers/Microsoft.Web/connections/googlesheet-2",
+            "type": "String"
+        },
+        "connections_twitter_2_externalid": {
+            "defaultValue": "/subscriptions/7c8baa85-fddd-4492-a618-a116511fbcda/resourceGroups/FRT/providers/Microsoft.Web/connections/twitter-2",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Logic/workflows",
+            "apiVersion": "2017-07-01",
+            "name": "[parameters('workflows_FRT_name')]",
+            "location": "northcentralus",
+            "properties": {
+                "state": "Enabled",
+                "definition": {
+                    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+                    "contentVersion": "1.0.0.0",
+                    "parameters": {
+                        "$connections": {
+                            "defaultValue": {},
+                            "type": "Object"
+                        }
+                    },
+                    "triggers": {
+                        "When_a_new_tweet_is_posted": {
+                            "recurrence": {
+                                "frequency": "Second",
+                                "interval": 3,
+                                "timeZone": "India Standard Time"
+                            },
+                            "evaluatedRecurrence": {
+                                "frequency": "Second",
+                                "interval": 3,
+                                "timeZone": "India Standard Time"
+                            },
+                            "splitOn": "@triggerBody()?['value']",
+                            "type": "ApiConnection",
+                            "inputs": {
+                                "host": {
+                                    "connection": {
+                                        "name": "@parameters('$connections')['twitter']['connectionId']"
+                                    }
+                                },
+                                "method": "get",
+                                "path": "/onnewtweet",
+                                "queries": {
+                                    "searchQuery": "'Ukrainian', #ww3 "
+                                }
+                            }
+                        }
+                    },
+                    "actions": {
+                        "For_each": {
+                            "foreach": "@body('Sentiment_(V3.0)')['documents']",
+                            "actions": {
+                                "Insert_row": {
+                                    "runAfter": {},
+                                    "metadata": {
+                                        "1lIrLTaf5oA7N9Kdb6j0T89n0P4SFFG7EK8cDeMNa3w0": "[concat('/', parameters('workflows_FRT_name'), '/TSAS-', parameters('workflows_FRT_name'))]"
+                                    },
+                                    "type": "ApiConnection",
+                                    "inputs": {
+                                        "body": {
+                                            "Tweet_x0020_Text_x0020_": "@triggerBody()?['TweetText']",
+                                            "Tweet_x0020_user_x0020_name": "@triggerBody()?['UserDetails']?['UserName']",
+                                            "score": "@items('For_each')['sentiment']"
+                                        },
+                                        "host": {
+                                            "connection": {
+                                                "name": "@parameters('$connections')['googlesheet']['connectionId']"
+                                            }
+                                        },
+                                        "method": "post",
+                                        "path": "/datasets/@{encodeURIComponent(encodeURIComponent('1lIrLTaf5oA7N9Kdb6j0T89n0P4SFFG7EK8cDeMNa3w0'))}/tables/@{encodeURIComponent(encodeURIComponent('Sheet1'))}/items"
+                                    }
+                                }
+                            },
+                            "runAfter": {
+                                "Sentiment_(V3.0)": [
+                                    "Succeeded"
+                                ]
+                            },
+                            "type": "Foreach"
+                        },
+                        "Sentiment_(V3.0)": {
+                            "runAfter": {},
+                            "type": "ApiConnection",
+                            "inputs": {
+                                "body": {
+                                    "documents": [
+                                        {
+                                            "id": "@triggerBody()?['UserDetails']?['UserName']",
+                                            "text": "@triggerBody()?['TweetText']"
+                                        }
+                                    ]
+                                },
+                                "host": {
+                                    "connection": {
+                                        "name": "@parameters('$connections')['cognitiveservicestextanalytics']['connectionId']"
+                                    }
+                                },
+                                "method": "post",
+                                "path": "/text/analytics/v3.0/sentiment"
+                            }
+                        }
+                    },
+                    "outputs": {}
+                },
+                "parameters": {
+                    "$connections": {
+                        "value": {
+                            "cognitiveservicestextanalytics": {
+                                "connectionId": "[parameters('connections_cognitiveservicestextanalytics_2_externalid')]",
+                                "connectionName": "cognitiveservicestextanalytics-2",
+                                "id": "/subscriptions/7c8baa85-fddd-4492-a618-a116511fbcda/providers/Microsoft.Web/locations/northcentralus/managedApis/cognitiveservicestextanalytics"
+                            },
+                            "googlesheet": {
+                                "connectionId": "[parameters('connections_googlesheet_2_externalid')]",
+                                "connectionName": "googlesheet-2",
+                                "id": "/subscriptions/7c8baa85-fddd-4492-a618-a116511fbcda/providers/Microsoft.Web/locations/northcentralus/managedApis/googlesheet"
+                            },
+                            "twitter": {
+                                "connectionId": "[parameters('connections_twitter_2_externalid')]",
+                                "connectionName": "twitter-2",
+                                "id": "/subscriptions/7c8baa85-fddd-4492-a618-a116511fbcda/providers/Microsoft.Web/locations/northcentralus/managedApis/twitter"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    ]
+}

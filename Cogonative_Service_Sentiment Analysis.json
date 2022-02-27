@@ -1,0 +1,77 @@
+{
+    "id": "/subscriptions/7c8baa85-fddd-4492-a618-a116511fbcda/resourceGroups/RG-GGI/providers/Microsoft.CognitiveServices/accounts/TSAS-FRT",
+    "name": "TSAS-FRT",
+    "type": "Microsoft.CognitiveServices/accounts",
+    "etag": "\"21001dfe-0000-0100-0000-61f542190000\"",
+    "location": "eastus",
+    "sku": {
+        "name": "F0"
+    },
+    "kind": "TextAnalytics",
+    "tags": {},
+    "properties": {
+        "endpoint": "https://tsas-frt.cognitiveservices.azure.com/",
+        "internalId": "f44f554ecd7440ee8aedc5fc488f8e34",
+        "dateCreated": "2022-01-29T13:32:36.9762286Z",
+        "apiProperties": {
+            "qnaAzureSearchEndpointKey": null
+        },
+        "isMigrated": false,
+        "customSubDomainName": "tsas-frt",
+        "networkAcls": {
+            "defaultAction": "Allow",
+            "virtualNetworkRules": [],
+            "ipRules": []
+        },
+        "privateEndpointConnections": [],
+        "publicNetworkAccess": "Enabled",
+        "capabilities": [
+            {
+                "name": "VirtualNetworks"
+            },
+            {
+                "name": "CustomerManagedKey"
+            },
+            {
+                "name": "Cloud",
+                "value": "TextAnalytics.Healthcare,TextAnalytics.Analyze,QuestionAnswer.AllApis,LanguageService.QuestionAnsweringApis"
+            },
+            {
+                "name": "Container",
+                "value": "TextAnalytics.Healthcare,TextAnalytics.Keyphrase,TextAnalytics.KeyphraseV2,TextAnalytics.KeyPhraseONNX,TextAnalytics.LanguageFastText,TextAnalytics.Language,TextAnalytics.LanguageV2,TextAnalytics.Sentiment,TextAnalytics.SentimentV2,TextAnalytics.SentimentV3,TextAnalytics.SentimentV3Preview"
+            }
+        ],
+        "endpoints": {
+            "Text Analytics": "https://tsas-frt.cognitiveservices.azure.com/",
+            "LanguageAuthoring": "https://tsas-frt.cognitiveservices.azure.com/",
+            "ConversationalLanguageUnderstanding": "https://tsas-frt.cognitiveservices.azure.com/",
+            "Custom Text Authoring Internal APIs": "https://tsas-frt.cognitiveservices.azure.com/",
+            "Conversational Language Understanding Authoring Internal APIs": "https://tsas-frt.cognitiveservices.azure.com/",
+            "Custom Text Authoring": "https://tsas-frt.cognitiveservices.azure.com/",
+            "Conversational Language Understanding Authoring": "https://tsas-frt.cognitiveservices.azure.com/",
+            "ConversationalLURuntime": "https://tsas-frt.cognitiveservices.azure.com/",
+            "QnAMaker": "https://tsas-frt.cognitiveservices.azure.com/",
+            "turing": "https://tsas-frt.cognitiveservices.azure.com/",
+            "Turing DeepWrite": "https://tsas-frt.cognitiveservices.azure.com/",
+            "QuestionAnswering": "https://tsas-frt.cognitiveservices.azure.com/",
+            "QuestionAnsweringBizQA": "https://tsas-frt.cognitiveservices.azure.com/",
+            "QuestionAnsweringQnAGen": "https://tsas-frt.cognitiveservices.azure.com/",
+            "LUIS.Authoring": "https://tsas-frt.cognitiveservices.azure.com/"
+        },
+        "provisioningState": "Succeeded"
+    },
+    "identity": {
+        "principalId": "c0d2734f-b45b-4dd8-8051-d1d763d89e2c",
+        "tenantId": "4402b1b9-8b17-4fa2-b970-5c39b31a5451",
+        "type": "SystemAssigned",
+        "userAssignedIdentities": {}
+    },
+    "systemData": {
+        "createdBy": "mayanksankhla700@gmail.com",
+        "createdByType": "User",
+        "createdAt": "2022-01-29T13:32:28.9241058Z",
+        "lastModifiedBy": "mayanksankhla700@gmail.com",
+        "lastModifiedByType": "User",
+        "lastModifiedAt": "2022-01-29T13:32:28.9241058Z"
+    }
+}
