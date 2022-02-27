@@ -13,6 +13,10 @@ SSC Nasscom ensured that the relevant courses are aligned with National Occupati
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Twitter Sentiment Analysis Logic App
+
+demo video link: https://youtu.be/7xQmaM1xpKM
+
+google aheet link: https://docs.google.com/spreadsheets/d/1lIrLTaf5oA7N9Kdb6j0T89n0P4SFFG7EK8cDeMNa3w0/edit?usp=sharing
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Problem Statement/Opportunity:
@@ -20,9 +24,6 @@ Identifying the sentiments of the tweets from Twitter regarding the current scen
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Project Description:
-What is sentiment analysis in twitter?
-Sentiment analysis refers to identifying as well as classifying the sentiments that are expressed in the text source. Tweets are often useful in generating a vast amount of sentiment data upon analysis. These data are useful in understanding the opinion of the people about a variety of topics.
-
 In this project, I tried to implement a Twitter sentiment analysis logic app that helps to overcome the challenges of identifying the sentiments of the tweets regarding the current scenario of war between Russia and Ukraine using MicroSoft Azure Services, To identify the thoughts of the twitter user in terms of sentiment score( positive/ negative/ neutral/ mixed), I per sentiment analysis on tweets and save them in Google Sheets. 
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
