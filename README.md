@@ -17,8 +17,9 @@ SSC Nasscom ensured that the relevant courses are aligned with National Occupati
 Industry: lifestyle
 demo video link: https://youtu.be/7xQmaM1xpKM
 
-google aheet link: https://docs.google.com/spreadsheets/d/1lIrLTaf5oA7N9Kdb6j0T89n0P4SFFG7EK8cDeMNa3w0/edit?usp=sharing
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+google sheet link: https://docs.google.com/spreadsheets/d/1lIrLTaf5oA7N9Kdb6j0T89n0P4SFFG7EK8cDeMNa3w0/edit?usp=sharing
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Problem Statement/Opportunity:
 Identifying the sentiments of the tweets from Twitter regarding the current scenario of war between Russia and Ukraine. Understand the opinion of the Twitter users in terms of sentiment score.
