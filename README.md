@@ -12,8 +12,9 @@ SSC Nasscom ensured that the relevant courses are aligned with National Occupati
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# Twitter Sentiment Analysis Logic App
+# Project Title: Twitter Sentiment Analysis Logic App
 
+Industry: lifestyle
 demo video link: https://youtu.be/7xQmaM1xpKM
 
 google aheet link: https://docs.google.com/spreadsheets/d/1lIrLTaf5oA7N9Kdb6j0T89n0P4SFFG7EK8cDeMNa3w0/edit?usp=sharing
