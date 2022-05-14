@@ -1,7 +1,7 @@
 # MICROSOFT-FUTURE-READY-TALENT-INTERNSHIP 
 
 # About Internship
-This internship program wass a collaborative effort by various companies: Microsoft, GitHub, Ernst & Young (EY), Quess and Future Skills Prime. Different services were handled by different companies as given below:
+This internship program was a collaborative effort by various companies: Microsoft, GitHub, Ernst & Young (EY), Quess and Future Skills Prime. Different services were handled by different companies as given below:
 
 Microsoft provided the learning modules and certifications to students. Learning modules will deal with trending concepts such as cloud computing, data, AI, and cybersecurity.
 EY took care of the technological services and provide mentorship to students.
